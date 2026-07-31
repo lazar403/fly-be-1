@@ -6,6 +6,9 @@ const PORT = 3000;
 const apiRouter = require('./routes/apiRoutes');
 const taskRouter = require('./routes/taskRoutes');
 
+// midleware
+app.use(express.json());
+
 // routes
 app.use("/", apiRouter);
 app.use("/health", apiRouter);

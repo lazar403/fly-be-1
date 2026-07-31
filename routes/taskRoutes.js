@@ -2,7 +2,7 @@ const { Router } = require('express');
 const taskRouter = Router();
 
 const taskObjects = [
-    'Clean dishes',
+    'Clean dishes', 
     'Do laundry',
     'Rack clothes'
 ];
@@ -21,6 +21,19 @@ taskRouter.get("/:id", (req, res, error) => {
         return;
     }
     res.status(200).json(taskObjects[taskId]);
+})
+
+taskRouter.post("/", (req, res) => {
+    // console.log(req.body.title);
+    const newTask = req.body.title;
+
+    if (!newTask) {
+        res.status(400).json({ error: "Bad Request" });
+        return;
+    }
+
+    taskObjects.push(newTask);
+    res.status(201).json(newTask);
 })
 
 module.exports = taskRouter;
