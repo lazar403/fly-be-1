@@ -22,7 +22,7 @@ const taskObjects = [
 
 // get all tasks
 taskRouter.get("/", (req, res) => {
-    res.json(taskObjects);
+    res.status(200).json(taskObjects);
 });
 
 // get task by id
