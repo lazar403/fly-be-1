@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./openapi.json');
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./openapi.json");
 const PORT = 3000;
 
 // routers
-const apiRouter = require('./routes/apiRoutes');
-const taskRouter = require('./routes/taskRoutes');
+const apiRouter = require("./routes/apiRoutes");
+const taskRouter = require("./routes/taskRoutes");
 
 // midleware
 app.use(express.json());
@@ -21,7 +21,7 @@ app.use("/tasks", taskRouter);
 app.use("/tasks/:id", taskRouter);
 
 app.listen(PORT, (error) => {
-    if (error) throw error;
+  if (error) throw error;
 
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
